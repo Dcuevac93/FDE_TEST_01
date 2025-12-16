@@ -1,0 +1,39 @@
+services:
+  vite:
+    image: node:22-alpine
+    working_dir: /src
+    volumes:
+      - ./frontend:/src
+      - /src/node_modules
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - nestjs
+  nestjs:
+    image: "node:22-alpine"
+    working_dir: /src
+    depends_on:
+      - postgresql
+    volumes:
+      - ./backend:/src
+      - /backend/node_modules
+    command: sh -c "npm install && npm run start:dev"
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+  postgresql:
+    image: "postgres:15.15-trixie"
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: consulting_firm
+      POSTGRES_DB: consulting_firm
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./db/postgresql_data:/var/lib/postgresql/data

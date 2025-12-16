@@ -1,57 +1,16 @@
-# Frontend Implementation
+# React + Vite
 
-## Tech Stack Options
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- **Framework:** React, Vue.js, or Next.js
-- **Language:** TypeScript preferred
-- **Build Tool:** Vite recommended
-- **Styling:** Tailwind CSS, CSS Modules, or styled-components
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Required Views
+## React Compiler
 
-### Public
-- Login page
-- Registration page
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### Admin
-- Dashboard (project stats overview)
-- Projects list (all projects)
-- Project detail (with comments)
-- Create/Edit project form
+## Expanding the ESLint configuration
 
-### Client
-- Dashboard (my projects)
-- Project detail (view + comment)
-
-### Shared
-- Profile page (optional)
-- 404 page
-
----
-
-## Key Requirements
-
-- [ ] Protected routes (auth required)
-- [ ] Role-based access (Admin vs Client views)
-- [ ] Form validation
-- [ ] Loading and error states
-- [ ] Mobile responsive
-
----
-
-## Environment Variables
-
-```bash
-cp .env.example .env
-```
-
----
-
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
